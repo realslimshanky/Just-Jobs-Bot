@@ -35,7 +35,9 @@ Last Date to Apply - August 31st, 2017
 Salary Offered - 1,00,000K
 Contact Person - Mr. Kumar
 Email Id - some@thing.xyz
-Phone No - 0123456789
+Phone No - 0123456789 
+
+To report a bug or contribute to this bot visit https://github.com/realslimshanky/Just-Jobs-Bot
 ''')
 
 def submitJob(bot, update):
