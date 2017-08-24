@@ -1,5 +1,5 @@
 # [Just-Jobs-Bot](https://telegram.me/justjobsbot)
-### Version 0.2
+### Current Version - 0.2
 Just Jobs Bot is a telegram bot which gathers detail of job opening from employer and post on the Just Jobs Channel.
 
 ## How To Use
@@ -8,7 +8,7 @@ To use the bot you simply have to send below mentioned commands as text message.
 
 /start - initial command to begin talking to the bot
 
-/help - to see how the bot works
+/help - to get help, report bug and contribute
 
 /submit - to submit job opening in your company
 
