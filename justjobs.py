@@ -83,6 +83,8 @@ After your submission the job will be displayed on @justjobs channel like the on
 Company Name - XYZ Inc.
 Job Designation - Dev Ops Developer
 Job Description - https://link-to-description.html
+Qualification Needed - B.Tech
+Experience Needed - 1 year using python, HTML, CSS 
 Joining Date - September 2017
 Last Date to Apply - August 31st, 2017
 Salary Offered - 1,00,000K
@@ -120,49 +122,61 @@ Enter Job Description
                 elif len(jobDetails[update.message.chat_id]) == 2:
                         jobDetails[update.message.chat_id].append(update.message.text)
                         bot.sendMessage(chat_id=update.message.chat_id,text='''
+Enter Minimum Education Qualification needed by the Employee to apply
+(e.g. B.Tech,M.Tech)''')
+                elif len(jobDetails[update.message.chat_id]) == 3:
+                        jobDetails[update.message.chat_id].append(update.message.text)
+                        bot.sendMessage(chat_id=update.message.chat_id,text='''
+Enter Minimum Experience needed by the Employee to apply
+(e.g. 3 years)''')
+                elif len(jobDetails[update.message.chat_id]) == 4:
+                        jobDetails[update.message.chat_id].append(update.message.text)
+                        bot.sendMessage(chat_id=update.message.chat_id,text='''
 Enter Joining Date
 (e.g. First week of September or specific calender date)''')
-                elif len(jobDetails[update.message.chat_id]) == 3:
+                elif len(jobDetails[update.message.chat_id]) == 5:
                         jobDetails[update.message.chat_id].append(update.message.text)
                         bot.sendMessage(chat_id=update.message.chat_id,text='''
 Last Date to Apply
 (e.g. Last week of August or specific calender date)''')
-                elif len(jobDetails[update.message.chat_id]) == 4:
+                elif len(jobDetails[update.message.chat_id]) == 6:
                         jobDetails[update.message.chat_id].append(update.message.text)
                         bot.sendMessage(chat_id=update.message.chat_id,text='''
 Salary Offered
 (e.g. 3 Lakh pa)''')
-                elif len(jobDetails[update.message.chat_id]) == 5:
+                elif len(jobDetails[update.message.chat_id]) == 7:
                         jobDetails[update.message.chat_id].append(update.message.text)
                         bot.sendMessage(chat_id=update.message.chat_id,text='''
 Enter name of contact person
 (e.g. Mr. Kumar)''')
-                elif len(jobDetails[update.message.chat_id]) == 6:
+                elif len(jobDetails[update.message.chat_id]) == 8:
                         jobDetails[update.message.chat_id].append(update.message.text)
                         bot.sendMessage(chat_id=update.message.chat_id,text='''
 Their Email ID
 (e.g. some@thing.com)''')
-                elif len(jobDetails[update.message.chat_id]) == 7:
+                elif len(jobDetails[update.message.chat_id]) == 9:
                         if re.match(r"[^@]+@[^@]+\.[^@]+", update.message.text):
                                 jobDetails[update.message.chat_id].append(update.message.text)
                                 bot.sendMessage(chat_id=update.message.chat_id,text='''
 Their 10 Digit Phone  No
 (e.g. 0123456789)''')
+                elif len(jobDetails[update.message.chat_id]) == 10:
                         else:
                                 bot.sendMessage(chat_id=update.message.chat_id,text='''Enter valid email address''')
-                elif len(jobDetails[update.message.chat_id]) == 8:
                         if re.match(r"^.{10,10}$", update.message.text):
                                 jobDetails[update.message.chat_id].append(update.message.text) 
                                 bot.sendMessage(chat_id=ChannelId, text='''
 Company Name - ''' + jobDetails[update.message.chat_id][0] + '''
 Job Designation - ''' + jobDetails[update.message.chat_id][1] + '''
 Job Description - ''' + jobDetails[update.message.chat_id][2] + '''
-Joining Date - ''' + jobDetails[update.message.chat_id][3] + '''
-Last Date to Connect - ''' + jobDetails[update.message.chat_id][4] + '''
-Salary Offered - ''' + jobDetails[update.message.chat_id][5] + '''
-Contact Person - ''' + jobDetails[update.message.chat_id][6] +'''
-Email Id - ''' + jobDetails[update.message.chat_id][7] +'''
-Phone No - ''' + jobDetails[update.message.chat_id][8])
+Qualification Needed - ''' + jobDetails[update.message.chat_id][3] + '''
+Experience Needed - ''' + jobDetails[update.message.chat_id][4] + '''
+Joining Date - ''' + jobDetails[update.message.chat_id][5] + '''
+Last Date to Connect - ''' + jobDetails[update.message.chat_id][6] + '''
+Salary Offered - ''' + jobDetails[update.message.chat_id][7] + '''
+Contact Person - ''' + jobDetails[update.message.chat_id][8] +'''
+Email Id - ''' + jobDetails[update.message.chat_id][9] +'''
+Phone No - ''' + jobDetails[update.message.chat_id][10])
                                 bot.sendMessage(chat_id=update.message.chat_id,text='''Your Job has been posted to @justjobs''')
                         else:
                                 bot.sendMessage(chat_id=update.message.chat_id,text='''Please enter valid phone number''')
