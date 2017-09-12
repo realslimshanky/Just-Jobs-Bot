@@ -160,9 +160,9 @@ Their Email ID
                                 bot.sendMessage(chat_id=update.message.chat_id,text='''
 Their 10 Digit Phone  No
 (e.g. 0123456789)''')
-                elif len(jobDetails[update.message.chat_id]) == 10:
                         else:
                                 bot.sendMessage(chat_id=update.message.chat_id,text='''Enter valid email address''')
+                elif len(jobDetails[update.message.chat_id]) == 10:
                         if re.match(r"^.{10,10}$", update.message.text):
                                 jobDetails[update.message.chat_id].append(update.message.text) 
                                 bot.sendMessage(chat_id=ChannelId, text='''
