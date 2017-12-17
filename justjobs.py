@@ -1,15 +1,71 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler
 from telegram import ChatAction
+from datetime import datetime, timedelta
+from pytz import timezone
+from time import sleep
 import logging
+import requests
+import pytz
 import re
-import configparser
+import ast
+import os
+import json
+import sys
+import signal
+import subprocess
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-config = configparser.ConfigParser()
-config.read('config.ini')
+"""
+---Process ID Management Starts---
+This part of the code helps out when you want to run your program in background using '&'. This will save the process id of the program going in background in a file named 'pid'. Now, when you run you program again, the last one will be terminated with the help of pid. If in case the no process exist with given process id, simply the `pid` file will be deleted and a new one with current pid will be created.
+"""
+currentPID = os.getpid()
+if 'pid' not in os.listdir():
+    with open('pid', mode='w') as f:
+        print(str(currentPID), file=f)
+else:
+    with open('pid', mode='r') as f:
+        try:
+            os.kill(int(f.read()), signal.SIGTERM)
+            print("Terminating previous instance of " +
+                  os.path.realpath(__file__))
+        except ProcessLookupError:
+            subprocess.run(['rm', 'pid'])
+    with open('pid', mode='w') as f:
+        print(str(currentPID), file=f)
+"""
+---Process ID Management Ends---
+"""
 
-updater=Updater(token=config['BOT']['TOKEN'])
+"""
+---Token Management Starts---
+This part will check for the config.txt file which holds the Telegram and Channel ID and will also give a user friendly message if they are invalid. New file is created if not present in the project directory.
+"""
+configError = "Please open config.txt file located in the project directory and relace the value '0' of Telegram-Bot-Token with the Token you recieved from botfather."
+if 'config.txt' not in os.listdir():
+    with open('config.txt', mode='w') as f:
+        json.dump({'Telegram-Bot-Token': 0, 'Channel-Id': 0}, f)
+        print(configError)
+        sys.exit(0)
+else:
+    with open('config.txt', mode='r') as f:
+        config = json.loads(f.read())
+        if config["Telegram-Bot-Token"]:
+            print("Token Present, continuing...")
+            TelegramBotToken = config["Telegram-Bot-Token"]
+            if config["Channel-Id"]:
+                ChannelId = config["Channel-Id"]
+            else:
+                    print("Channel ID is not present in config.txt. Please follow instruction on README.md, run getid.py and replace the Channel ID you obtain.")
+        else:
+            print(configError)
+            sys.exit(0)
+"""
+---Token Management Ends---
+"""
+
+updater=Updater(token=TelegramBotToken)
 dispatcher=updater.dispatcher
 
 jobDetails = {}
@@ -100,7 +156,7 @@ Their 10 Digit Phone  No
                 elif len(jobDetails[update.message.chat_id]) == 8:
                         if re.match(r"^.{10,10}$", update.message.text):
                                 jobDetails[update.message.chat_id].append(update.message.text) 
-                                bot.sendMessage(chat_id=config['BOT']['JustJobsChannel'], text='''
+                                bot.sendMessage(chat_id=ChannelId, text='''
 Company Name - ''' + jobDetails[update.message.chat_id][0] + '''
 Job Designation - ''' + jobDetails[update.message.chat_id][1] + '''
 Job Description - ''' + jobDetails[update.message.chat_id][2] + '''

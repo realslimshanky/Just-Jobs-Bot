@@ -1,5 +1,5 @@
 # [Just-Jobs-Bot](https://telegram.me/justjobsbot)
-### Current Version - 0.2
+### Current Version - 0.3
 
 #### Version 0.1 - 23rd August 2017
 
@@ -17,3 +17,10 @@
     *   How to use
     *   How to deploy your instance of this bot
     *   How to contribute
+
+#### Version 0.3 - 17th December 2017
+
+*   Pipenv support added to the bot.
+*   Process ID management added to the bot which will help while running background instances of the bot.
+*   Token management added to the bot which will help segragate the tokens from bot and provide a user friendly way of managing them.
+*   `getpid.py` also supports Token management now.

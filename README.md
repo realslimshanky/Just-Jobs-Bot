@@ -1,5 +1,5 @@
 # [Just-Jobs-Bot](https://telegram.me/justjobsbot)
-### Current Version - 0.2 ([see change logs](https://github.com/realslimshanky/Just-Jobs-Bot/blob/master/ChangeLogs.md))
+### Current Version - 0.3 ([see change logs](https://github.com/realslimshanky/Just-Jobs-Bot/blob/master/ChangeLogs.md))
 Just Jobs Bot is a telegram bot which gathers detail of job opening from employer and post on the Just Jobs Channel.
 
 ## How To Use
@@ -29,15 +29,16 @@ You need Python 3 and PIP installed for this to work
 * Fork the repo to your profile
 * `git clone link-to-repo.git` - Clone your copy of this repo to your local machine 
 * `cd Just-Jobs-Bot` - Move to the repo folder
-* `pip install -r requirements.txt` - install dependencies
+* Install `pipenv` by running `pip install pipenv`
+* `pipenv install -r requirements.txt` - install dependencies
 * Create a new bot using [Botfather](https://telegram.me/botfather)
-* Replace `Telegram-Bot-Token` with the token you get from Botfather in `config.ini` file
+* Replace `Telegram-Bot-Token` with the token you get from Botfather in `config.txt` file
 * Create a channel and make it public to get the username e.g. @mychannel
 * We need unique ID of this channel, to get that first add your bot as administrator to the channel you just created
-* Run `python3 getid.py` and send `test` to the channel
+* Run `pipenv run python3 getid.py` and send `test` to the channel
 * The channel ID will be printed onto the terminal
-* Replace this unique ID with `ChannelId` in `config.ini` file
-* Now run `python3 justjobs.py`
+* Replace this unique ID with `Channel-Id` in `config.txt` file
+* Now run `pipenv run python3 justjobs.py`
 * You can now use commands mentioned above in `How To Use` section
 
 ## How To Contribute
