@@ -1,13 +1,10 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler
 from telegram import ChatAction
 from datetime import datetime, timedelta
-from pytz import timezone
 from time import sleep
 import logging
 import requests
-import pytz
 import re
-import ast
 import os
 import json
 import sys
