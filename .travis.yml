@@ -2,7 +2,8 @@ language: python
 python:
   - "3.5"
 install:
-  - pip install pipenv
-  - pipenv install -r requirements.txt
+  - pip install pipenv # Installing pipenv package
+  - pipenv --three # Initializing Python 3 environment
+  - pipenv install -r requirements.txt # Installing dependencies
 scripts:
   - pipenv run python justjobs.py
