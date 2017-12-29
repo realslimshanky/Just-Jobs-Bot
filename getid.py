@@ -33,7 +33,7 @@ updater=Updater(token=TelegramBotToken)
 dispatcher=updater.dispatcher
 
 def getID(bot, update):
-    print("Channel ID = " + str(update.channel_post.chat.id) + ". Please replace this Channel ID with the value of 'Channel-ID' in config.txt.")
+    print("Channel ID = " + str(update.message.chat.id) + ". Please replace this Channel ID with the value of 'Channel-ID' in config.txt.")
     sys.exit(0)
 
 dispatcher.add_handler(MessageHandler(Filters.text, getID))
