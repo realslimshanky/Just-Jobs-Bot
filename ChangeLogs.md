@@ -24,3 +24,9 @@
 *   Process ID management added to the bot which will help while running background instances of the bot.
 *   Token management added to the bot which will help segragate the tokens from bot and provide a user friendly way of managing them.
 *   `getpid.py` also supports Token management now.
+
+#### Version 0.4 - 29th December 2017
+
+* Quastions regarding educational qualifications added to the bot.
+* Fixing dependency version in `requirement.txt`
+* minor bug fixes
