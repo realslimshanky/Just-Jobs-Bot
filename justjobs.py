@@ -38,9 +38,9 @@ else:
 
 """
 ---Token Management Starts---
-This part will check for the config.txt file which holds the Telegram and Channel ID and will also give a user friendly message if they are invalid. New file is created if not present in the project directory.
+This part will check for the config.json file which holds the Telegram and Channel ID and will also give a user friendly message if they are invalid. New file is created if not present in the project directory.
 """
-configError = "Please open config.txt file located in the project directory and replace the value '0' of Telegram-Bot-Token with the Token you recieved from botfather."
+configError = "Please open config.json file located in the project directory and replace the value '0' of Telegram-Bot-Token with the Token you recieved from botfather."
 if 'config.json' not in os.listdir():
     with open('config.json', mode='w') as f:
         json.dump({'Telegram-Bot-Token': 0, 'Channel-Id': 0}, f)
@@ -55,7 +55,7 @@ else:
             if config["Channel-Id"]:
                 ChannelId = config["Channel-Id"]
             else:
-                    print("Channel ID is not present in config.txt. Please follow instruction on README.md, run getid.py and replace the Channel ID you obtain.")
+                    print("Channel ID is not present in config.json. Please follow instruction on README.md, run getid.py and replace the Channel ID you obtain.")
         else:
             print(configError)
             sys.exit(0)
@@ -67,6 +67,7 @@ jobs = {}
 
 updater = Updater(token=TelegramBotToken)
 dispatcher = updater.dispatcher
+
 def start(update: Update, context: CallbackContext):
     context.bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     start_msg = inspect.cleandoc('''
