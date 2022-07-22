@@ -1,5 +1,5 @@
 # [Just-Jobs-Bot](https://telegram.me/justjobsbot)
-### Current Version - 0.5
+### Current Version - 0.6
 
 #### Version 0.1 - 23rd August 2017
 
@@ -37,3 +37,9 @@
 * Fix GetID
 * Use JSON config instead of txt config
 * Remove unused imports and other code cleanup
+
+#### Version 0.6 - 22 July 2022
+* Adding an option to skip phone number in justjobs.py
+* Removing pipenv usage
+* Adding development dependencies
+* Adding Flake8

@@ -1,5 +1,3 @@
 pid
-Pipfile
-Pipfile.lock
-config.txt
-
+venv
+config.json
