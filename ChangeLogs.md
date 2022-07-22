@@ -1,5 +1,5 @@
 # [Just-Jobs-Bot](https://telegram.me/justjobsbot)
-### Current Version - 0.3
+### Current Version - 0.5
 
 #### Version 0.1 - 23rd August 2017
 
@@ -30,3 +30,10 @@
 * Questions regarding educational qualifications added to the bot.
 * Fixing dependency version in `requirement.txt`
 * minor bug fixes
+
+#### Version 0.5 - 29 June 2022
+* Migrate the bot to python-telegram-bot v13
+* Fix dependency version in `requirements.txt`
+* Fix GetID
+* Use JSON config instead of txt config
+* Remove unused imports and other code cleanup
